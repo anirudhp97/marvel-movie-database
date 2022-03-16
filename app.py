@@ -101,38 +101,48 @@ def contact():
 @app.route('/spiderman')
 def spiderMan():
     spiderMan = ia.get_movie('10872600')
+    spidey_rating_fetch = ia.get_movie('10872600', 'vote details')
+    spidey_rating = spidey_rating_fetch.get('median')
     df = createDataframe(spiderMan)
     wordCloudSpidey(df)
-    return render_template('spiderman.html', url='static/images/spidey/spidey/spidey.png')
+    return render_template('spiderman.html', url='static/images/spidey/spidey/spidey.png', spideyrating='Rating: {}/10'.format(spidey_rating))
 
 
 @app.route('/venom2')
 def Venom2():
     Venom2 = ia.get_movie('7097896')
+    venom2_rating_fetch = ia.get_movie('7097896', 'vote details')
+    venom2_rating = venom2_rating_fetch.get('median')
     df = createDataframe(Venom2)
     wordCloudVenom2(df)
-    return render_template('venom2.html', url='/static/images/venom2/venom2/venom2.png')
+    return render_template('venom2.html', url='/static/images/venom2/venom2/venom2.png', venomrating='Rating: {}/10'.format(venom2_rating))
 
 @app.route('/blackwidow')
 def Blackwidow():
     blackWidow = ia.get_movie('3480822')
+    blackWidow_rating_fetch = ia.get_movie('7097896', 'vote details')
+    blackWidow_rating = blackWidow_rating_fetch.get('median')
     df = createDataframe(blackWidow)
     wordCloudBlackWidow(df)
-    return render_template('blackwidow.html', url='/static/images/blackwidow/blackwidow/blackwidow.png')
+    return render_template('blackwidow.html', url='/static/images/blackwidow/blackwidow/blackwidow.png', blackwidowrating='Rating: {}/10'.format(blackWidow_rating))
 
 @app.route('/shangchi')
 def Shangchi():
     shangChi = ia.get_movie('9376612')
+    shangchi_rating_fetch = ia.get_movie('7097896', 'vote details')
+    shangchi_rating = shangchi_rating_fetch.get('median')
     df = createDataframe(shangChi)
     wordCloudShangChi(df)
-    return render_template('shangchi.html', url='/static/images/shangchi/shangchi/shangchi.png')
+    return render_template('shangchi.html', url='/static/images/shangchi/shangchi/shangchi.png', shangchirating='Rating: {}/10'.format(shangchi_rating))
 
 @app.route('/eternals')
 def Eternals():
     Eternals = ia.get_movie('9032400')
+    eternals_rating_fetch = ia.get_movie('7097896', 'vote details')
+    eternals_rating = eternals_rating_fetch.get('median')
     df = createDataframe(Eternals)
     wordCloudEternals(df)
-    return render_template('eternals.html', url='/static/images/eternals/eternals.png')
+    return render_template('eternals.html', url='/static/images/eternals/eternals.png', eternalsrating='Rating: {}/10'.format(eternals_rating))
 
 if __name__ == '__main__':
     app.run(use_reloader=True, debug=True)
