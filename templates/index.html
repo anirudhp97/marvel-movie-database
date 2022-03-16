@@ -77,7 +77,7 @@ background-attachment: fixed;
 <div class="navbar">
   <a href="/about">About</a>
   <div class="dropdown">
-  <button class="dropbtn" onclick="myFunction()">Movies
+  <button class="dropbtn" onclick="myFunctionMovie()">Movies
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-content" id="myDropdown">
@@ -87,18 +87,42 @@ background-attachment: fixed;
     <a href="/spiderman">Spider-Man: No Way Home</a>
     <a href="/venom2">Venom: Let There Be Carnage</a>
   </div>
-  </div> 
+  </div>
+  
+  <div class="dropdown">
+  <button class="dropbtn" onclick="myFunctionUpcomingMovie()">Upcoming Movies (2022)
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown1">
+    <a href="/doctorstrange">Doctor Strange in the Multiverse of Madness</a>
+	<a href="/thorloveandthunder">Thor: Love and Thunder</a>
+	<a href="/blackpanther">Black Panther: Wakanda Forever</a>
+  </div>
+  </div>
   <a href="/contact">Contact Us</a>
 </div>
 
 <script>
-function myFunction() {
+function myFunctionMovie() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
 window.onclick = function(e) {
   if (!e.target.matches('.dropbtn')) {
   var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+
+function myFunctionUpcomingMovie() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown1");
     if (myDropdown.classList.contains('show')) {
       myDropdown.classList.remove('show');
     }
